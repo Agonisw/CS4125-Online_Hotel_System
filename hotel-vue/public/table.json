@@ -1,0 +1,19 @@
+{
+    "list": [{
+                "id": 1,
+                "name": "摄像机32119",
+                "cameraId": 32119,
+                "chipId": "F00265157",
+                "bindTime": "2019-11-1",
+                "remark": "测试111"
+            },{
+            "id": 2,
+            "name": "摄像机32224",
+            "cameraId": 32224,
+            "chipId": "F00267338",
+            "bindTime": "2019-11-1",
+            "remark": "测试222"
+        }
+    ],
+    "pageTotal": 2
+}

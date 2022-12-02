@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.common.mapper.UserMapper">
+
+    <select id="selectUserRoleCode" resultType="java.lang.String">
+        SELECT `code` from role WHERE id in (SELECT role_id FROM user_role WHERE user_id=#{id})
+    </select>
+    <select id="getAllByMenuId" resultType="com.xxx.common.entity.User">
+         SELECT DISTINCT u.*  FROM user_role ur LEFT JOIN role_menu rm ON
+        rm.role_id=ur.role_id LEFT JOIN `user` u ON u.id=ur.user_id
+        WHERE menu_id=#{menuId}
+    </select>
+    <select id="selectUserRoleName" resultType="java.lang.String">
+        SELECT `name` from role WHERE id in (SELECT role_id FROM user_role WHERE user_id=#{id})
+    </select>
+</mapper>

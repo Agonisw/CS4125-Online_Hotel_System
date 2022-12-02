@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.common.mapper.OrderMapper">
+
+    <select id="selectList2" resultType="com.xxx.common.entity.Order">
+        select `o`.*,u.real_name,p.name,p.image_url from `order` o left join `user` u on o.user_id=u.id
+        left join product p on o.product_id=p.id where 1=1
+        <if test="userId !=null">
+            and o.user_id=#{userId}
+        </if>
+        <if test="realName !=null">
+            and u.real_name like concat('%',#{realName},'%')
+        </if>
+        <if test="name !=null">
+            and p.name like concat('%',#{name},'%')
+        </if>
+    </select>
+</mapper>
